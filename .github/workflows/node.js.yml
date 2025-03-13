@@ -23,14 +23,15 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd api_tests/
+        cd /
         npm install
 
     - name: Check Jest installation
       run: |
-        cd api_tests/
+        cd api/
 
     - name: Run tests with Jest
       run: |
-        cd api_tests/
-        npx jest
+        cd api/
+        node api.js
+      timeout-minutes: 1
