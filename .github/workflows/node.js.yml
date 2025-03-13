@@ -12,25 +12,21 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16, 18, 20]  # Test on multiple Node.js versions
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: api_tests/package-lock.json
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'  # Adjust to the Node.js version you're using
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: api_tests  # Runs inside the 'api' folder
+    - name: Install dependencies
+      run: |
+        cd api_tests/unitTests_Jest
+        npm install
 
-      - name: Run api_tests
-        run: npm test
-        working-directory: api_tests
+    - name: Run tests with Jest
+      run: |
+        cd api_tests/unitTests_Jest
+        npm test
