@@ -23,7 +23,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd /
+        cd api/
         npm install
 
     - name: Check Jest installation
