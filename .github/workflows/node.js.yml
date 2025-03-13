@@ -26,7 +26,11 @@ jobs:
         cd api_tests/
         npm install
 
-    - name: Run tests with Jest
+    - name: Check Jest installation
       run: |
         cd api_tests/
-        npm test
+
+    - name: Run tests with Jest
+      run: |
+        cd api_tests/unitTests_Jest
+        npx jest
