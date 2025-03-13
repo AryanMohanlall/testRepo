@@ -1,4 +1,4 @@
-name: API Tests
+name: CLI Tests
 
 on:
   push:
@@ -23,11 +23,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd api_tests/
+        cd cli/
         npm install
 
-    - name: Run tests with Jest
+    - name: Run CLI
       run: |
-        cd api_tests/
-        npm test
+        cd cli/
+        node index.js
       timeout-minutes: 1
