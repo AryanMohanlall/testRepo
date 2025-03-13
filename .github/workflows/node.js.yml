@@ -28,5 +28,5 @@ jobs:
 
     - name: Run tests with Jest
       run: |
-        cd api_tests/unitTests_Jest
+        cd api_tests/
         npm test
