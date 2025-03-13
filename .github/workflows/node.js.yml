@@ -25,12 +25,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-          cache-dependency-path: api/package-lock.json
+          cache-dependency-path: api_tests/package-lock.json
 
       - name: Install dependencies
         run: npm install
-        working-directory: api  # Runs inside the 'api' folder
+        working-directory: api_tests  # Runs inside the 'api' folder
 
-      - name: Run api
-        run: node api.js
-        working-directory: api
+      - name: Run api_tests
+        run: npm test
+        working-directory: api_tests
